@@ -1,0 +1,118 @@
+ALGORITHM sum_of-distinct_elements
+
+// Problème 1 solution avec le tableau
+VAR
+    tab1 : ARRAY_OF INTEGER[];
+    tab2 : ARRAY_OF INTEGER[]; 
+    sum = 0;
+BEGIN
+FOR i FROM 0 TO tab1.length-1 STEP 1  DO
+    read(tab1[i]);
+END_FOR
+   Write ("Entrez les entiers du premier tableau")
+
+    FOR j FROM 0 TO tab2.length-1 STEP step  DO
+        read (tab2[j]);
+    END_FOR
+    Write ("Entrez les entiers du deuxième tableau")
+
+    FOR (let i = 0; i<tab1.length; i++)
+    FOR (let j = 0; j<tab2.length; j++)
+        if (tab1[i] <> tab2[j]) {
+            sum = sum + tab1[i];
+        }
+    END_FOR
+    END_FOR
+
+    FOR (let j = 0; j<tab2.length; j++)
+    FOR (let i = 0; i<tab1.length; i++)
+        if (tab2[j] <> tab1[i]) {
+            sum = sum + tab1[i];
+        }
+    END_FOR
+    END_FOR
+    
+END
+
+ALGORITHM sum_of-distinct_elements
+// Problème 1 solution avec la table de hachage
+VAR
+    H= HASH_TABLE<INTEGER,INTEGER>
+    count: INTEGER;
+BEGIN
+    FOR (let i = 0; i<tab1.length; i++)
+    FOR (let j = 0; j<tab2.length; j++)
+    if (H.lookup(tab1[i]) == true ) {
+        count := H.get(tab1[i])
+        H.insert (tab1[i]) , count + 1)
+    }
+    else{
+        count := 1
+        H.insert (tab1[i], count)
+    }
+    arr := H.getKeys() 
+    FOR (let i = 0; i<arr.length; i++){
+        if (H.get(arr[i]) <> 1){
+            sum := sum+arr[i];
+        }
+    }
+END
+
+ALGORITHM sum_of-equals_elements
+// Problème 2 solution avec le tableau
+VAR
+    tab1 : ARRAY_OF INTEGER[];
+    tab2 : ARRAY_OF INTEGER[]; 
+    sum = 0;
+BEGIN
+FOR i FROM 0 TO tab1.length-1 STEP 1  DO
+    read(tab1[i]);
+END_FOR
+   Write ("Entrez les entiers du premier tableau")
+
+    FOR j FROM 0 TO tab2.length-1 STEP step  DO
+        read (tab2[j]);
+    END_FOR
+    Write ("Entrez les entiers du deuxième tableau")
+
+    FOR (let i = 0; i<tab1.length; i++)
+    FOR (let j = 0; j<tab2.length; j++)
+        if (tab1[i] == tab2[j]) {
+            sum = sum + tab1[i];
+        }
+    END_FOR
+    END_FOR
+
+    FOR (let j = 0; j<tab2.length; j++)
+    FOR (let i = 0; i<tab1.length; i++)
+        if (tab2[j] == tab1[i]) {
+            sum = sum + tab1[i];
+        }
+    END_FOR
+    END_FOR
+    
+END
+
+ALGORITHM sum_of-equals_elements
+// Problème 2 solution avec la table de hachage
+VAR
+    H= HASH_TABLE<INTEGER,INTEGER>
+    count: INTEGER;
+BEGIN
+    FOR (let i = 0; i<tab1.length; i++)
+    FOR (let j = 0; j<tab2.length; j++)
+    if (H.lookup(tab1[i]) == true ) {
+        count := H.get(tab1[i])
+        H.insert (tab1[i]) , count + 1)
+    }
+    else{
+        count := 1
+        H.insert (tab1[i], count)
+    }
+    arr := H.getKeys() 
+    FOR (let i = 0; i<arr.length; i++){
+        if (H.get(arr[i]) == 1){
+            sum := sum+arr[i];
+        }
+    }
+END
